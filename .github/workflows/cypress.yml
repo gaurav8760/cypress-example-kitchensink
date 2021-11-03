@@ -12,12 +12,8 @@ jobs:
   build:    
     runs-on: ubuntu-latest  
     steps: 
-      - name: Set ENV variables
-      - run : "Setting LT creds."
-        env:
-          # pass the Dashboard record key as an environment variable
-          LT_USERNAME: gauravkb
-          LT_ACCESS_KEY: DqLVVOF1ll4TTMyXXt3gslp8NZ8Ynon3vwcRd4eFTV5GLavGh9
+      - run: export LT_USERNAME=gauravkb
+      - run: export LT_ACCESS_KEY=DqLVVOF1ll4TTMyXXt3gslp8NZ8Ynon3vwcRd4eFTV5GLavGh9
       - uses: actions/checkout@v2      
       - uses: actions/setup-node@v2       
         with:          
