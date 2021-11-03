@@ -18,12 +18,12 @@ jobs:
       - name: Install NPM and Cypress
         run:
           npm install
-          $(npm bin)/cypress verify
           
 #       - name: Use Node.js vnode16.5.0
 #         uses: actions/setup-node@v1
 #         with:
 #           node-version: 12
+
       - name: generate LambdaTest Config
         run:
           lambdatest-cypress init
