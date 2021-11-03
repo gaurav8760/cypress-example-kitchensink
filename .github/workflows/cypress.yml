@@ -1,40 +1,23 @@
 # This workflow will do a clean install of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Cypress Sample
+name: Cypress Test
 
-on:
+on:  
   push:
     branches: 
     - 'master'
-
+    
 jobs:
-  Cypress-Sample:
-    name: Run on Chrome 92
-    runs-on: ubuntu-latest
-    container: cypress/browsers:node16.5.0-chrome94-ff93
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-      
-      - name: Install NPM
-        run: npm install
-          
-      - name: Install Cypress
-        run: npm install -g lambdatest-cypress-cli
-          
-      - name: Version
-        with:
-          node-version: 12
-      - name: Set ENV variables
-        env:
-          # pass the Dashboard record key as an environment variable
-          LT_USERNAME: "gauravkb"
-          LT_ACCESS_KEY: "DqLVVOF1ll4TTMyXXt3gslp8NZ8Ynon3vwcRd4eFTV5GLavGh9"
-
-      - name: generate LambdaTest Config
-        run: 
-            lambdatest-cypress init      
-            lambdatest-cypress run
+  build:    
+    runs-on: ubuntu-latest    
+    steps:      
+      - uses: actions/checkout@v2      
+      - uses: actions/setup-node@v2       
+        with:          
+          node-version: 12      
+      - run: npm install -g lambdatest-cypress-cli      
+      - run: lambdatest-cypress init      
+      - run: lambdatest-cypress run
           
         
