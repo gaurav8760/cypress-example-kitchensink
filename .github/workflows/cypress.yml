@@ -11,9 +11,7 @@ on:
 jobs:
   Cypress-Sample:
     name: Run on Chrome 92
-    runs-on: window 10
-    container: cypress/browsers:node16.5.0-chrome94-ff93
-
+    runs-on: window10
     
     steps:
       - uses: actions/checkout@v2
