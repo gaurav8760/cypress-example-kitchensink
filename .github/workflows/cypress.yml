@@ -12,8 +12,11 @@ jobs:
   build:    
     runs-on: ubuntu-latest  
     steps: 
-      - run: export LT_USERNAME=gauravkb
-      - run: export LT_ACCESS_KEY=DqLVVOF1ll4TTMyXXt3gslp8NZ8Ynon3vwcRd4eFTV5GLavGh9
+      - name: LT Creds
+        run: echo Hello world $LT_USERNAME $LT_ACCESS_KEY!
+        env:
+          LT_USERNAME: gauravkb
+          LT_ACCESS_KEY: DqLVVOF1ll4TTMyXXt3gslp8NZ8Ynon3vwcRd4eFTV5GLavGh9
       - uses: actions/checkout@v2      
       - uses: actions/setup-node@v2       
         with:          
