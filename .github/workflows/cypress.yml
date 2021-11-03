@@ -11,8 +11,9 @@ on:
 jobs:
   build:    
     runs-on: ubuntu-latest  
-    steps:     
+    steps: 
       - name: Set ENV variables
+      - run : "Setting LT creds."
         env:
           # pass the Dashboard record key as an environment variable
           LT_USERNAME: gauravkb
