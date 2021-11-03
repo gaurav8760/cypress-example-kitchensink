@@ -12,14 +12,16 @@ jobs:
   Cypress-Sample:
     name: Run on Chrome 92
     runs-on: ubuntu-latest
-    container: cypress/browsers:node16.5.0-chrome94-ff93
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
-      - name: Install cypress and verify
-        run:
-          npm install
-          npm install -g lambdatest-cypress-cli
+      
+      - name: Install NPM
+        run: npm install
+          
+      - name: Install Cypress
+        run: npm install -g lambdatest-cypress-cli
+          
       - name: Version
         with:
           node-version: 12
