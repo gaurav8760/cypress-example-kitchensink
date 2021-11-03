@@ -1,7 +1,7 @@
 {
    "lambdatest_auth": {
-      "username": "gauravkb",
-      "access_key": "DqLVVOF1ll4TTMyXXt3gslp8NZ8Ynon3vwcRd4eFTV5GLavGh9"
+      "username": "<Your LambdaTest username>",
+      "access_key": "<Your LambdaTest access key>"
    },
    "browsers": [
       {
