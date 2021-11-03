@@ -10,12 +10,14 @@ on:
 
 jobs:
   Cypress-Sample:
-    name: Chrome
+    name: Run on Chrome 92
+    runs-on: window 10
+    
     steps:
       - uses: actions/checkout@v2
       - name: Install NPM and Cypress
         run:
-          npm install
+          rm -f package-lock.json && npm install
           npm install -g lambdatest-cypress-cli
           
 #       - name: Use Node.js vnode16.5.0
