@@ -18,6 +18,7 @@ jobs:
       - name: Install NPM and Cypress
         run:
           npm install
+          lambdatest-cypress-cli@git+https://github.com/LambdaTest/lambdatest-cypress-cli.git
           
 #       - name: Use Node.js vnode16.5.0
 #         uses: actions/setup-node@v1
