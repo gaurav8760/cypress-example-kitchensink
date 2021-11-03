@@ -10,26 +10,40 @@ on:
 
 jobs:
   Cypress-Sample:
-    name: Run on Chrome 92
+    name: Chrome
     runs-on: window 10
     container: cypress/browsers:node16.5.0-chrome94-ff93
     steps:
       - uses: actions/checkout@v2
-      - name: Install cypress and verify
+      - name: Install NPM and Cypress
         run:
-          npm ci
+          npm install -g lambdatest-cypress-cli
           $(npm bin)/cypress verify
           
-      - name: Run Cypress Tests
-        run: npm run test:chrome
-        continue-on-error: false
+#       - name: Use Node.js vnode16.5.0
+#         uses: actions/setup-node@v1
+#         with:
+#           node-version: 12
+      - name: generate LambdaTest Config
+        run:
+          lambdatest-cypress init
+          
+      - name: Set ENV variables
+        env:
+          # pass the Dashboard record key as an environment variable
+          LT_USERNAME: "gauravkb"
+          LT_ACCESS_KEY: "DqLVVOF1ll4TTMyXXt3gslp8NZ8Ynon3vwcRd4eFTV5GLavGh9"
         
       - name: copy test execution video and screenshots
         run: 
           mkdir public
           cp -r cypress/video public/videos
           cp -r cypress/screenshots public/screenshots
-          
-      - name: Run Cypress Test
-        run: lambdatest-cypress run
+        
+        
+      # Starts local server, then runs Cypress tests and records results on the dashboard
+      - name: Cypress tests
+        run: |
+          npm start &
+          npx cypress run --record --parallel --group "Parallel 2x"
         
