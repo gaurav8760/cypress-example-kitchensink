@@ -18,7 +18,7 @@ jobs:
       - name: Install NPM and Cypress
         run:
           npm install
-          lambdatest-cypress-cli@git+https://github.com/LambdaTest/lambdatest-cypress-cli.git
+          npm install -g lambdatest-cypress-cli
           
 #       - name: Use Node.js vnode16.5.0
 #         uses: actions/setup-node@v1
@@ -45,6 +45,5 @@ jobs:
       # Starts local server, then runs Cypress tests and records results on the dashboard
       - name: Cypress tests
         run: |
-          npm start &
-          npx cypress run --record --parallel --group "Parallel 2x"
+          lambdatest-cypress run
         
