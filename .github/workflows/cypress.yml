@@ -17,7 +17,7 @@ jobs:
         with:          
           node-version: 12     
       - run: npm install -g lambdatest-cypress-cli     
-#       - run: lambdatest-cypress init      
+      - run: lambdatest-cypress init      
 #       - name: LT Creds
 #         run: echo Hello world $LT_USERNAME $LT_ACCESS_KEY!
 #         env:
