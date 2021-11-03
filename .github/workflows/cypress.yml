@@ -20,6 +20,7 @@ jobs:
         env:
           username: LT_USERNAME
           access_key: LT_ACCESS_KEY
+          
       - run: lambdatest-cypress init
       - run: lambdatest-cypress run
           
