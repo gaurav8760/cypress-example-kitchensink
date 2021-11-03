@@ -1,6 +1,19 @@
 # This workflow will do a clean install of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
+name: Node.js Package
+    on:  release:    
+    types: [created]
+jobs:  
+steps:      
+        - uses: actions/checkout@v2      
+        - uses: actions/setup-node@v2       
+ with:          
+node-version: 12      
+- run: npm install -g lambdatest-cypress-cli      
+- run: lambdatest-cypress init      
+- run: lambdatest-cypress run
+
 name: Cypress Sample
 
 on:
@@ -9,41 +22,44 @@ on:
     - 'master'
 
 jobs:
+  build:    
+  runs-on: ubuntu-latest    
   Cypress-Sample:
     name: Run on Chrome 92
     runs-on: window10
     
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2               
       - name: Install NPM and Cypress
         run:
           rm -f package-lock.json && npm install
           npm install -g lambdatest-cypress-cli
-          
-#       - name: Use Node.js vnode16.5.0
-#         uses: actions/setup-node@v1
-#         with:
-#           node-version: 12
-
-      - name: generate LambdaTest Config
-        run:
-          lambdatest-cypress init
+        with:
+          node-version: 12
           
       - name: Set ENV variables
         env:
           # pass the Dashboard record key as an environment variable
           LT_USERNAME: "gauravkb"
           LT_ACCESS_KEY: "DqLVVOF1ll4TTMyXXt3gslp8NZ8Ynon3vwcRd4eFTV5GLavGh9"
+
+      - name: generate LambdaTest Config
+        run:
+          - run: lambdatest-cypress init      
+          - run: lambdatest-cypress run
+          
+      
         
-      - name: copy test execution video and screenshots
-        run: 
-          mkdir public
-          cp -r cypress/video public/videos
-          cp -r cypress/screenshots public/screenshots
+#       - name: copy test execution video and screenshots
+#         run: 
+#           mkdir public
+#           cp -r cypress/video public/videos
+#           cp -r cypress/screenshots public/screenshots
         
         
-      # Starts local server, then runs Cypress tests and records results on the dashboard
-      - name: Cypress tests
-        run: |
-          lambdatest-cypress run
+#       # Starts local server, then runs Cypress tests and records results on the dashboard
+#       - name: Cypress tests
+#         run: |
+#           lambdatest-cypress run
         
