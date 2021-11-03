@@ -18,8 +18,8 @@ jobs:
           node-version: 12     
       - run: npm install -g lambdatest-cypress-cli
         env:
-          username: gauravkb
-          access_key: DqLVVOF1ll4TTMyXXt3gslp8NZ8Ynon3vwcRd4eFTV5GLavGh9
+          username: LT_USERNAME
+          access_key: LT_ACCESS_KEY
       - run: lambdatest-cypress init
       - run: lambdatest-cypress run
           
