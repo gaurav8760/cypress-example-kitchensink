@@ -12,19 +12,17 @@ jobs:
   Cypress-Sample:
     name: Run on Chrome 92
     runs-on: ubuntu-latest
-    
+    container: cypress/browsers:node16.5.0-chrome94-ff93
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
-      
-      - name: Install NPM and Cypress
-          run:npm install
-          run:npm install -g lambdatest-cypress-cli
-        
+      - name: Install cypress and verify
+        run:
+          npm install
+          npm install -g lambdatest-cypress-cli
+      - name: Version
         with:
           node-version: 12
-        
-          
       - name: Set ENV variables
         env:
           # pass the Dashboard record key as an environment variable
@@ -36,14 +34,4 @@ jobs:
             lambdatest-cypress init      
             lambdatest-cypress run
           
-      
-        
-#       - name: copy test execution video and screenshots
-#         run: 
-#           mkdir public
-#           cp -r cypress/video public/videos
-#           cp -r cypress/screenshots public/screenshots
-        
-        
-
         
