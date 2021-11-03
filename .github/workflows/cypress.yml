@@ -11,7 +11,7 @@ on:
 jobs:
   Cypress-Sample:
     name: Run on Chrome 92
-    runs-on: window10
+    runs-on: window 10
     container: cypress/browsers:node16.5.0-chrome94-ff93
     steps:
       - uses: actions/checkout@v2
@@ -30,15 +30,6 @@ jobs:
           cp -r cypress/video public/videos
           cp -r cypress/screenshots public/screenshots
           
-      - name: Merge test reports
-        run: npm run combine:reports
-        
-      - name: Generate HTML reports
-        run: npm run generate:reports
-        
-      - name: Deploy report page to Github Page
-        uses: peaceiris/actions-gh-page@v3
-        with:
-          githiub_token: ${{ secrets.GITHIB_TOKEN}}
-          publish_dir: ./public
+      - name: Run Cypress Test
+        run: lambdatest-cypress run
         
