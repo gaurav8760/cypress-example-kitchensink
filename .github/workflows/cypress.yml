@@ -23,7 +23,7 @@ jobs:
       - run: npm install -g lambdatest-cypress-cli
       - run: lambdatest-cypress init
       - run:
-          echo "The LT_USERNAME value is $LT_USERNAME $LT_ACCESS_KEY"
+          echo "The LT_USERNAME"
       - run: lambdatest-cypress run
 
           
