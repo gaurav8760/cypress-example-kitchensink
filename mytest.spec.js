@@ -16,7 +16,9 @@ describe('First Code', function(){
             // //Click on tech-spec//
             // cy.get('#ac-localnav > div > div.ac-ln-content > div.ac-ln-menu > div.ac-ln-menu-tray > ul > li:nth-child(3) > a').click()
 
-            cy.get('#search > div > div > input').type('LambdaTest')
+//             cy.get('#search > div > div > input').type('LambdaTest')
+            cy.get('#search >').type('LambdaTest')
+
             cy.get('#search > button').click()
             cy.get('#main > div.a9b7335e.bb.b--black-10 > div').click()
             cy.get('#main > div._23fffac0.w-100.mw9.ph5-ns.ph3-l.ph1-m.mh3-ns.center.center-ns.flex.flex-column.flex-row-l.justify-between > div > section:nth-child(1) > div._0d2164ff > div.bea55649.flex.flex-row.flex-wrap.items-end.pr3 > a > h3').click()
