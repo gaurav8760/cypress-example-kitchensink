@@ -24,8 +24,7 @@ jobs:
       - run: lambdatest-cypress init
       - run:
           echo "The LT_USERNAME value is $LT_USERNAME $LT_ACCESS_KEY"
-#       - run: lambdatest-cypress run
-      - run:
-          npx cypress run
+      - run: lambdatest-cypress run
+
           
         
