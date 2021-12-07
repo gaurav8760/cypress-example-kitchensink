@@ -25,11 +25,6 @@ jobs:
       - run:
           echo "The LT_USERNAME na"
       - run: lambdatest-cypress run --envs="c=2,baseurl=https://accounts.lambdatest.com/login"
-      
-      - name: Remove File
-      - uses: JesseTG/rm@v1.0.2
-        with:
-          path: /cypress-example-kitchensink/cypress.env.json
 
 
 
