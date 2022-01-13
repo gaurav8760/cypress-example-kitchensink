@@ -20,7 +20,6 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    npm install
     npm install -g lambdatest-cypress-cli
     lambdatest-cypress init
     lambdatest-cypress run
