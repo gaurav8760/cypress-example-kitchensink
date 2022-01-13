@@ -10,8 +10,9 @@ jobs:
   - job: Cypress_e2e_tests
     pool:
       vmImage: 'ubuntu-16.04'
-    strategy:
-      parallel: 4
+    variables:
+      LT_USERNAME: 'gauravkb'
+      LT_ACCESS_KEY: 'hUV2fq7Xb0SlFDRL1cwE8bcx71P0hImMJR0aaqN8groMUYzVLJ'
     steps:
       - task: NodeTool@0
         inputs:
