@@ -1,25 +1,26 @@
-# if you want to configure triggers for Azure CI see
-# https://docs.microsoft.com/en-us/azure/devops/pipelines/build/triggers?view=azure-devops&tabs=yaml#tags
+# Node.js
+# Build a general Node.js project with npm.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
-jobs:
+trigger:
+- master
 
-  # Example job that runs end-to-end tests using Cypress test runner
-  #   https://www.cypress.io/
+pool:
+  vmImage: 'Ubuntu-16.04'
 
-  # Job names can contain alphanumeric characters and '_', cannot start with a number
-  - job: Cypress_e2e_tests
-    pool:
-      vmImage: 'ubuntu-16.04'
-    variables:
-      LT_USERNAME: 'gauravkb'
-      LT_ACCESS_KEY: 'hUV2fq7Xb0SlFDRL1cwE8bcx71P0hImMJR0aaqN8groMUYzVLJ'
-    steps:
-      - task: NodeTool@0
-        inputs:
-          versionSpec: '12.x'
-          displayName: 'Install Node.js'
+variables:
+  LT_USERNAME: 'gauravkb'
+  LT_ACCESS_KEY: 'hUV2fq7Xb0SlFDRL1cwE8bcx71P0hImMJR0aaqN8groMUYzVLJ'
 
-      - script: |
-          npm install -g lambdatest-cypress-cli
-          lambdatest-cypress init
-          lambdatest-cypress run
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '10.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    npm install
+    npm install -g lambdatest-cypress-cli
+    lambdatest-cypress init
+    lambdatest-cypress run
