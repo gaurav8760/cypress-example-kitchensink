@@ -1,0 +1,21 @@
+# Node.js
+# Build a general Node.js project with npm.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+- master
+
+pool:
+  vmImage: 'Ubuntu-16.04'
+
+variables:
+  LT_USERNAME: 'Your_LambdaTest_Username'
+  LT_ACCESS_KEY: 'Your_LambdaTest_Access_Key'
+
+steps:
+- task: NodeTool@0
+- script: |
+    npm install -g lambdatest-cypress-cli
+    lambdatest-cypress init
+    lambdatest-cypress run
