@@ -24,7 +24,7 @@ jobs:
       - run: lambdatest-cypress init
       - run:
           echo "The LT_USERNAME na"
-          echo lambdatest-cypress --version
+          lambdatest-cypress --version
       - run: lambdatest-cypress run --envs="c=2,baseurl=https://accounts.lambdatest.com/login"
 
 
