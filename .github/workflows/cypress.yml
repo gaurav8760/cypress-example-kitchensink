@@ -13,8 +13,8 @@ jobs:
   build:    
     runs-on: ubuntu-latest
     env:
-      LT_USERNAME: gauravkb
-      LT_ACCESS_KEY: PLG2vOOeeZSKCJ5jXF1pXbP3KSQydUgDWmNDXfa21QqMQqQRcL
+      LT_USERNAME: username
+      LT_ACCESS_KEY: access_key
     steps: 
       - uses: actions/checkout@v2      
       - uses: actions/setup-node@v2       
