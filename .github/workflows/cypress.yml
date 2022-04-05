@@ -26,8 +26,5 @@ jobs:
           echo "The LT_USERNAME"
           lambdatest-cypress --version
       - run: lambdatest-cypress run
-
-
-
           
         
