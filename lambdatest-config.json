@@ -1,32 +1,37 @@
 {
-   "lambdatest_auth": {
-      "username": "<Your LambdaTest username>",
-      "access_key": "<Your LambdaTest access key>"
-   },
-   "browsers": [
-      {
-         "browser": "Chrome",
-         "platform": "Windows 10",
-         "versions": [
-            "latest"
-         ]
-      },
-       {
-         "browser": "firefox",
-         "platform": "Windows 10",
-         "versions": [
-            "latest"
-         ]
-      }
-   ],
-   "run_settings": {
-      "cypress_config_file": "/path/to/<cypress config file>.json",
-      "build_name": "Cypress Sample Demo",
-      "parallels": 1,
-      "specs": "./cypress/integration/examples/*.spec.js"
-   },
-   "tunnel_settings": {
-      "tunnel": false,
-      "tunnelName": null
-   }
+  "lambdatest_auth": {
+    "username": "<Your LambdaTest username>",
+    "access_key": "<Your LambdaTest access key>"
+  },
+  "browsers": [
+    {
+      "browser": "Chrome",
+      "platform": "Windows 10",
+      "versions": ["latest"]
+    }
+  ],
+  "run_settings": {
+    "cypress_config_file": "cypress.json",
+    "build_name": "Cypress Skip",
+    "parallels": 1,
+    "specs": "cypress/integration/examples/demofile.spec.js",
+    "ignore_files": "video/v.mkv,video/vv.mkv",
+    "feature_file_suppport": false,
+    "network": false,
+    "headless": false,
+    "downloads": "./README.md,./package.json,./cypress/snapshots/examples/cypressSnapshot.spec.js,./cypress/Reports",
+    "reporter_config_file": "reporter.json",
+    "npm_dependencies": {
+      "npm-run-all": "^4.1.2",
+      "serve": "13.0.2",
+      "cypress": "9.5.0",
+      "@reportportal/agent-js-cypress": "5.0.3",
+      "cypress-file-upload": "^5.0.8"
+    },
+
+  "tunnel_settings": {
+    "tunnel": false,
+    "tunnel_name": null
+  }
+}
 }
