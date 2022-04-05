@@ -12,7 +12,7 @@
   ],
   "run_settings": {
     "cypress_config_file": "cypress.json",
-    "build_name": "Cypress Skip",
+    "build_name": "Cypress Test From Github Actions",
     "parallels": 1,
     "specs": "cypress/integration/examples/demofile.spec.js",
     "ignore_files": "video/v.mkv,video/vv.mkv",
